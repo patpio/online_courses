@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # Local
+    'users.apps.UsersConfig',
     'home.apps.HomeConfig',
     'courses.apps.CoursesConfig',
 ]
@@ -143,6 +144,8 @@ STATICFILES_FINDERS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+AUTH_USER_MODEL = 'users.Account'
+
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT = 'home'
@@ -150,3 +153,9 @@ ACCOUNT_LOGOUT_REDIRECT = 'home'
 SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

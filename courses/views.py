@@ -34,9 +34,9 @@ class CourseUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'courses/update_course.html'
     model = Course
     login_url = reverse_lazy('users:login')
-    raise_exception = True
     context_object_name = 'course'
     permission_required = 'courses.change_course'
+    raise_exception = False
     fields = ['title', 'subject', 'slug', 'overview', 'course_image']
     success_url = reverse_lazy('home')
 

@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Local apps
+    path('accounts/', include('users.urls', namespace='users')),
     path('', include('home.urls')),
     path('courses/', include('courses.urls', namespace='courses')),
 ]
